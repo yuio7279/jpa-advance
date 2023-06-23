@@ -20,5 +20,13 @@ public class User {
     private String name;
 
 
+    @OneToMany(mappedBy = "user")
+    private List<Food> foodList = new ArrayList<>();
+
+    public void addFoodList(Food food){
+        this.foodList.add(food);
+        food.setUser(this); //외래키 연관관계 설정
+    }
+
 
 }
